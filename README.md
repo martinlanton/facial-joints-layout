@@ -23,15 +23,15 @@ skin each joint drives.
 from facial_joints_layout import JointPlacementSolver
 
 placement = JointPlacementSolver(bound_fraction=0.5).solve(
-    rest_verts=rest_verts,          # (N, 3)
-    rest_faces=rest_faces,          # (F, 3) or (F, 4)
-    deltas=deltas,                  # (S, N, 3), the shapes' offsets
-    weights=weights,                # (N, P), from a solve with these joints
+    rest_verts=rest_verts,  # (N, 3)
+    rest_faces=rest_faces,  # (F, 3) or (F, 4)
+    deltas=deltas,  # (S, N, 3), the shapes' offsets
+    weights=weights,  # (N, P), from a solve with these joints
     joint_positions=joint_positions,  # (P, 3)
-    joint_names=joint_names,        # L_/R_/C_ prefixes mark the side
-    fixed_joints=[root],            # joints that must not move
+    joint_names=joint_names,  # L_/R_/C_ prefixes mark the side
+    fixed_joints=[root],  # joints that must not move
 )
-moved = placement.positions         # (P, 3); then solve again with these
+moved = placement.positions  # (P, 3); then solve again with these
 ```
 
 `bound_fraction` is the share of the gap to the nearest other joint a joint
